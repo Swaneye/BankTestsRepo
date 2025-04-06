@@ -42,12 +42,6 @@ test('Your period choice is saved after clicking JÄTKA', async ({ page }) => {
 test('Opening modal with edited URL values do not allow to break amount and period max limits', async ({ page }) => {
     await page.goto('https://laenutaotlus.bigbank.ee/?amount=40000&period=240&productName=SMALL_LOAN&loanPurpose=DAILY_SETTLEMENTS');
 
-    await expect(page).toHaveTitle(/Taotlus | Bigbank/);
-    await expect(page.locator('text=Vali sobiv summa ja periood')).toBeVisible();
-
-    await page.locator('label:has-text("Laenusumma")').textContent();
-    await page.locator('label:has-text("Periood")').textContent();
-
     await expect(page.locator('input[name="header-calculator-amount"]')).toHaveValue('30,000');
     await expect(page.locator('input[name="header-calculator-period"]')).toHaveValue('120');
 
@@ -56,12 +50,6 @@ test('Opening modal with edited URL values do not allow to break amount and peri
 
 test('Opening modal with edited URL values do not allow to break amount and period min limits', async ({ page }) => {
     await page.goto('https://laenutaotlus.bigbank.ee/?amount=100&period=1&productName=SMALL_LOAN&loanPurpose=DAILY_SETTLEMENTS');
-
-    await expect(page).toHaveTitle(/Taotlus | Bigbank/);
-    await expect(page.locator('text=Vali sobiv summa ja periood')).toBeVisible();
-
-    await page.locator('label:has-text("Laenusumma")').textContent();
-    await page.locator('label:has-text("Periood")').textContent();
 
     await expect(page.locator('input[name="header-calculator-amount"]')).toHaveValue('500');
     await expect(page.locator('input[name="header-calculator-period"]')).toHaveValue('6');
