@@ -4,7 +4,7 @@ test.describe('Loan Modal Calculator Tests', () => {
   test.beforeEach(async ({ page }) => {
     await page.goto('https://laenutaotlus.bigbank.ee');
 
-    await expect(page).toHaveTitle(/Taotlus | Bigbank/);
+    await expect(page).toHaveTitle(/Bigbank/);
     await expect(page.locator('text=Vali sobiv summa ja periood')).toBeVisible();
 
     await page.locator('label:has-text("Laenusumma")').textContent();
