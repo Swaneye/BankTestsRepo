@@ -1,3 +1,3 @@
 # BankTestsRepo
 
-Welcome to my playwright tests automated tests repository
+Welcome to my playwright automated tests repository
